@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.files       = ['lib/epp-xml.rb', 'lib/client_transaction_id.rb', 'lib/epp-xml/domain.rb', 'lib/epp-xml/contact.rb', 'lib/epp-xml/session.rb', 'lib/epp-xml/keyrelay.rb']
   s.require_paths = ['lib']
   s.license       = 'MIT'
-  s.homepage    = 'https://github.com/gitlabeu/epp-xml'
+  s.homepage    = 'https://github.com/internetee/epp-xml'
 
   s.add_dependency 'activesupport', '~> 4.1'
 
