@@ -1,4 +1,5 @@
 require 'active_support/core_ext/string/filters'
+require 'active_support/core_ext/hash'
 require 'nokogiri'
 require 'active_support'
 require 'epp-xml'

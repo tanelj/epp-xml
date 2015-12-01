@@ -11,9 +11,9 @@ Gem::Specification.new do |s|
   s.license       = 'MIT'
   s.homepage    = 'https://github.com/internetee/epp-xml'
 
-  s.add_dependency 'activesupport', '~> 4.1'
+  s.add_dependency 'activesupport', '>= 3.0'
 
-  s.add_runtime_dependency 'builder', '~> 3.2'
+  s.add_runtime_dependency 'builder', '>= 3.0.0'
 
   s.add_development_dependency 'rspec', '~> 3.1'
   s.add_development_dependency 'nokogiri', '~> 1.6'
