@@ -4,16 +4,20 @@ class EppXml
   class Domain
     include ClientTransactionId
 
+    XMLNS         = 'urn:ietf:params:xml:ns:epp-1.0'.freeze
+
+    XMLNS_DOMAIN  = 'https://epp.tld.ee/schema/domain-eis-1.0.xsd'.freeze
+
+    XMLNS_SECDNS  = 'urn:ietf:params:xml:ns:secDNS-1.1'.freeze
+
+    XMLNS_EIS     = 'https://epp.tld.ee/schema/eis-1.0.xsd'.freeze
+
     def info(xml_params = {}, custom_params = {})
       build('info', xml_params, custom_params)
     end
 
     def check(xml_params = {}, custom_params = {})
       build('check', xml_params, custom_params)
-    end
-
-    def delete(xml_params = {}, custom_params = {})
-      build('delete', xml_params, custom_params)
     end
 
     def renew(xml_params = {}, custom_params = {})
@@ -24,21 +28,21 @@ class EppXml
       xml = Builder::XmlMarkup.new
 
       xml.instruct!(:xml, standalone: 'no')
-      xml.epp('xmlns' => 'urn:ietf:params:xml:ns:epp-1.0') do
+      xml.epp('xmlns' => XMLNS) do
         xml.command do
           xml.create do
-            xml.tag!('domain:create', 'xmlns:domain' => 'https://epp.tld.ee/schema/domain-eis-1.0.xsd') do
+            xml.tag!('domain:create', 'xmlns:domain' => XMLNS_DOMAIN) do
               EppXml.generate_xml_from_hash(xml_params, xml, 'domain:')
             end
           end
 
           xml.extension do
-            xml.tag!('secDNS:create', 'xmlns:secDNS' => 'urn:ietf:params:xml:ns:secDNS-1.1') do
+            xml.tag!('secDNS:create', 'xmlns:secDNS' => XMLNS_SECDNS) do
               EppXml.generate_xml_from_hash(dnssec_params, xml, 'secDNS:')
             end if dnssec_params.any?
 
             xml.tag!('eis:extdata',
-              'xmlns:eis' => 'https://epp.tld.ee/schema/eis-1.0.xsd') do
+              'xmlns:eis' => XMLNS_EIS) do
               EppXml.generate_xml_from_hash(custom_params, xml, 'eis:')
             end if custom_params.any?
           end if dnssec_params.any? || custom_params.any?
@@ -52,21 +56,21 @@ class EppXml
       xml = Builder::XmlMarkup.new
 
       xml.instruct!(:xml, standalone: 'no')
-      xml.epp('xmlns' => 'urn:ietf:params:xml:ns:epp-1.0') do
+      xml.epp('xmlns' => XMLNS) do
         xml.command do
           xml.update do
-            xml.tag!('domain:update', 'xmlns:domain' => 'https://epp.tld.ee/schema/domain-eis-1.0.xsd') do
+            xml.tag!('domain:update', 'xmlns:domain' => XMLNS_DOMAIN) do
               EppXml.generate_xml_from_hash(xml_params, xml, 'domain:')
             end
           end
 
           xml.extension do
-            xml.tag!('secDNS:update', 'xmlns:secDNS' => 'urn:ietf:params:xml:ns:secDNS-1.1') do
+            xml.tag!('secDNS:update', 'xmlns:secDNS' => XMLNS_SECDNS) do
               EppXml.generate_xml_from_hash(dnssec_params, xml, 'secDNS:')
             end
 
             xml.tag!('eis:extdata',
-              'xmlns:eis' => 'https://epp.tld.ee/schema/eis-1.0.xsd') do
+              'xmlns:eis' => XMLNS_EIS) do
               EppXml.generate_xml_from_hash(custom_params, xml, 'eis:')
             end if custom_params.any?
           end if dnssec_params.any? || custom_params.any?
@@ -80,10 +84,30 @@ class EppXml
       xml = Builder::XmlMarkup.new
 
       xml.instruct!(:xml, standalone: 'no')
-      xml.epp('xmlns' => 'urn:ietf:params:xml:ns:epp-1.0') do
+      xml.epp('xmlns' => XMLNS) do
         xml.command do
           xml.transfer('op' => op) do
-            xml.tag!('domain:transfer', 'xmlns:domain' => 'https://epp.tld.ee/schema/domain-eis-1.0.xsd') do
+            xml.tag!('domain:transfer', 'xmlns:domain' => XMLNS_DOMAIN) do
+              EppXml.generate_xml_from_hash(xml_params, xml, 'domain:')
+            end
+          end
+
+          EppXml.custom_ext(xml, custom_params)
+          xml.clTRID(clTRID) if clTRID
+        end
+      end
+    end
+
+    def delete(xml_params = {}, custom_params = {}, verified = false)
+      xml = Builder::XmlMarkup.new
+
+      verified_option = verified ?  verified : 'no'
+
+      xml.instruct!(:xml, standalone: 'no')
+      xml.epp('xmlns' => XMLNS) do
+        xml.command do
+          xml.delete do
+            xml.tag!("domain:delete", 'xmlns:domain' => XMLNS_DOMAIN, 'verified' => verified_option) do
               EppXml.generate_xml_from_hash(xml_params, xml, 'domain:')
             end
           end
@@ -100,10 +124,10 @@ class EppXml
       xml = Builder::XmlMarkup.new
 
       xml.instruct!(:xml, standalone: 'no')
-      xml.epp('xmlns' => 'urn:ietf:params:xml:ns:epp-1.0') do
+      xml.epp('xmlns' => XMLNS) do
         xml.command do
           xml.tag!(command) do
-            xml.tag!("domain:#{command}", 'xmlns:domain' => 'https://epp.tld.ee/schema/domain-eis-1.0.xsd') do
+            xml.tag!("domain:#{command}", 'xmlns:domain' => XMLNS_DOMAIN) do
               EppXml.generate_xml_from_hash(xml_params, xml, 'domain:')
             end
           end
