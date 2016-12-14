@@ -126,7 +126,7 @@ puts Nokogiri(xml)
 <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
   <command>
     <create>
-      <contact:create xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+      <contact:create xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
         <contact:id>sh8013</contact:id>
         <contact:postalInfo type="int">
           <contact:name>John Doe</contact:name>

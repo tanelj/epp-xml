@@ -9,7 +9,7 @@ describe EppXml::Contact do
         <command>
           <check>
             <contact:check
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </check>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -24,7 +24,7 @@ describe EppXml::Contact do
         <command>
           <check>
             <contact:check
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
               <contact:id>sah8013</contact:id>
               <contact:id>8013sah</contact:id>
@@ -63,7 +63,7 @@ describe EppXml::Contact do
         <command>
           <check>
             <contact:check
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </check>
         </command>
       </epp>
@@ -80,7 +80,7 @@ describe EppXml::Contact do
         <command>
           <info>
             <contact:info
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </info>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -95,7 +95,7 @@ describe EppXml::Contact do
         <command>
           <info>
             <contact:info
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
               <contact:authInfo>
                 <contact:pw>2fooBAR</contact:pw>
@@ -124,7 +124,7 @@ describe EppXml::Contact do
         <command>
           <transfer op="query">
             <contact:transfer
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </transfer>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -139,7 +139,7 @@ describe EppXml::Contact do
         <command>
           <transfer op="query">
             <contact:transfer
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
               <contact:authInfo>
                 <contact:pw>2fooBAR</contact:pw>
@@ -178,7 +178,7 @@ describe EppXml::Contact do
         <command>
           <create>
             <contact:create
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </create>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -195,7 +195,7 @@ describe EppXml::Contact do
         <command>
           <create>
             <contact:create
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
               <contact:postalInfo type="int">
                 <contact:name>John Doe</contact:name>
@@ -262,7 +262,7 @@ describe EppXml::Contact do
         <command>
           <delete>
             <contact:delete
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </delete>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -277,7 +277,7 @@ describe EppXml::Contact do
         <command>
           <delete>
             <contact:delete
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
             </contact:delete>
           </delete>
@@ -300,7 +300,7 @@ describe EppXml::Contact do
         <command>
           <update>
             <contact:update
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd" />
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd" />
           </update>
           <clTRID>ABC-12345</clTRID>
         </command>
@@ -315,7 +315,7 @@ describe EppXml::Contact do
         <command>
           <update>
             <contact:update
-             xmlns:contact="https://epp.tld.ee/schema/contact-eis-1.0.xsd">
+             xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">
               <contact:id>sh8013</contact:id>
               <contact:add>
                 <contact:status s="clientDeleteProhibited"/>
