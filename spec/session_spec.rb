@@ -5,7 +5,7 @@ describe EppXml::Session do
 
   it 'generates valid login xml' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <login>
             <clID>user</clID>
@@ -16,7 +16,7 @@ describe EppXml::Session do
             </options>
             <svcs>
               <objURI>https://epp.tld.ee/schema/domain-eis-1.0.xsd</objURI>
-              <objURI>https://epp.tld.ee/schema/contact-eis-1.0.xsd</objURI>
+              <objURI>https://epp.tld.ee/schema/contact-ee-1.1.xsd</objURI>
               <objURI>urn:ietf:params:xml:ns:host-1.0</objURI>
               <objURI>urn:ietf:params:xml:ns:keyrelay-1.0</objURI>
               <svcExtension>
@@ -36,7 +36,7 @@ describe EppXml::Session do
 
   it 'generates valid login xml with new pw' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <login>
             <clID>user</clID>
@@ -48,7 +48,7 @@ describe EppXml::Session do
             </options>
             <svcs>
               <objURI>https://epp.tld.ee/schema/domain-eis-1.0.xsd</objURI>
-              <objURI>https://epp.tld.ee/schema/contact-eis-1.0.xsd</objURI>
+              <objURI>https://epp.tld.ee/schema/contact-ee-1.1.xsd</objURI>
               <objURI>urn:ietf:params:xml:ns:host-1.0</objURI>
               <objURI>urn:ietf:params:xml:ns:keyrelay-1.0</objURI>
               <svcExtension>
@@ -68,7 +68,7 @@ describe EppXml::Session do
 
   it 'generates valid logout xml' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <logout/>
           <clTRID>ABC-12345</clTRID>
@@ -82,7 +82,7 @@ describe EppXml::Session do
 
   it 'generates valid logout xml without clTRID' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <logout/>
         </command>
@@ -96,7 +96,7 @@ describe EppXml::Session do
 
   it 'generates valid poll xml' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <poll op="req" />
           <clTRID>ABC-12345</clTRID>
@@ -108,7 +108,7 @@ describe EppXml::Session do
     expect(generated).to eq(expected)
 
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
         <command>
           <poll op="ack" msgID="12345" />
 
