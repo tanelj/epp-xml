@@ -1,5 +1,8 @@
-Version 1.0.5
+1.1.0
+* EPP XML schema namespace "urn:ietf:params:xml:ns:epp-1.0" replaced with "https://epp.tld.ee/schema/epp-ee-1.0.xsd"
+* EPP XML schema contact-eis-1.0 replaced with contact-ee-1.1
 
+1.0.5
 * lib/epp-xml/domain.rb : all tag strings moved to class constants
 
 * lib/epp-xml/domain.rb (delete method):
