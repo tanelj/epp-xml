@@ -41,7 +41,7 @@ Results in:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+<epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
   <command>
     <info>
       <domain:info xmlns:domain="https://epp.tld.ee/schema/domain-eis-1.0.xsd">
@@ -74,7 +74,7 @@ puts Nokogiri(xml)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+<epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
   <command>
     <check>
       <domain:check xmlns:domain="https://epp.tld.ee/schema/domain-eis-1.0.xsd">
@@ -123,7 +123,7 @@ puts Nokogiri(xml)
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+<epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd">
   <command>
     <create>
       <contact:create xmlns:contact="https://epp.tld.ee/schema/contact-ee-1.1.xsd">

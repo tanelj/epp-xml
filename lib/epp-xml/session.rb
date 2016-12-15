@@ -33,7 +33,7 @@ class EppXml
 
       xml.instruct!(:xml, standalone: 'no')
       xml.epp(
-        'xmlns' => 'urn:ietf:params:xml:ns:epp-1.0'
+        'xmlns' => 'https://epp.tld.ee/schema/epp-ee-1.0.xsd'
       ) do
         xml.command do
           xml.login do
@@ -48,7 +48,7 @@ class EppXml
       xml = Builder::XmlMarkup.new
       xml.instruct!(:xml, standalone: 'no')
       xml.epp(
-        'xmlns' => 'urn:ietf:params:xml:ns:epp-1.0'
+        'xmlns' => 'https://epp.tld.ee/schema/epp-ee-1.0.xsd'
       ) do
         xml.command do
           xml.logout
@@ -67,7 +67,7 @@ class EppXml
       xml = Builder::XmlMarkup.new
 
       xml.instruct!(:xml, standalone: 'no')
-      xml.epp('xmlns' => 'urn:ietf:params:xml:ns:epp-1.0') do
+      xml.epp('xmlns' => 'https://epp.tld.ee/schema/epp-ee-1.0.xsd') do
         xml.command do
           EppXml.generate_xml_from_hash(xml_params, xml)
 
