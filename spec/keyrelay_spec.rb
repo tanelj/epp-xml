@@ -5,7 +5,7 @@ describe EppXml::Keyrelay do
 
   it 'generates valid keyrelay xml' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd"
       xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1"
       xmlns:domain="https://epp.tld.ee/schema/domain-eis-1.0.xsd"
       xmlns:ext="urn:ietf:params:xml:ns:keyrelay-1.0">
@@ -59,7 +59,7 @@ describe EppXml::Keyrelay do
 
   it 'generates minimal keyrelay xml' do
     expected = Nokogiri::XML('<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-      <epp xmlns="urn:ietf:params:xml:ns:epp-1.0"
+      <epp xmlns="https://epp.tld.ee/schema/epp-ee-1.0.xsd"
       xmlns:secDNS="urn:ietf:params:xml:ns:secDNS-1.1"
       xmlns:domain="https://epp.tld.ee/schema/domain-eis-1.0.xsd"
       xmlns:ext="urn:ietf:params:xml:ns:keyrelay-1.0">
